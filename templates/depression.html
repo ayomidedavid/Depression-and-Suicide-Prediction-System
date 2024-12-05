@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Predictor - Result</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Depression Predictor Result</h1>
+        <h2>The model predicts:</h2>
+        {% if result == 1 %}
+            <h1>You are not depressed</h1>
+            <h2> <a href="{% url 'home' %}">Back to Home</a></h2>
+        {% else %}
+            <h1>The patient is tending towards being depressed</h1>
+           <h2> <a href="{% url 'home2' %}">Take suicide test</a></h2> <br><br>
+
+            <h3>ADVISE/RECOMMENDATION</h3>
+            <ol>
+                <h3> <li><strong> BE HAPPY, KEEP SMILING, BETTER DAYS IS COMING SOON.</strong></li></h3> 
+
+                <h3> <li><strong>SEE YOUR DOCTOR NOW, DON'T DELAY</strong></li> </h3> 
+
+                <h3> <li><strong>TAKE YOUR ANTI-DEPRESSANT MEDICATION REGULARLY </strong></li> </h3>
+
+                <h3> <li><strong>EXERCISE REGULARLY, RELAX AND LISTEN TO MUSIC YOU LOVE</strong></li> </h3>
+
+                    <h3> <li><strong>A PROBLEM SHARED IS HALF SOLVED, VISIT A COUNSELLOR </strong></li> </h3>
+                
+                    <h3> <li><strong>TRUST GOD FOR EVERYTHING AND VISIT SPIRITUAL PROGRAMMES</strong></li> </h3>
+            </ol>
+        {% endif %}
+    </div>
+</body>
+</html>

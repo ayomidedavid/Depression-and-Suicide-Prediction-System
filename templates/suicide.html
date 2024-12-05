@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suicide Predictor - Result</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Suicide Predictor - Result</h1>
+        <h2>The model predicts:</h2>
+        {% if result == 1 %}
+            <h1>The patient is not attempting any suicidal action</h1>
+        {% else %}
+            <h1>The patient is tending towards a suicidal state</h1>
+
+            <h2>ADVISE/RECOMMENDATION</h2>
+            <ol>
+              <h3> <li><strong>SUICIDE IS NEVER A SOLUTION TO ANY PROBLEM</strong></li></h3> 
+
+              <h3> <li><strong>BE POSITIVE, STAY POSITIVE AND KEEP YOUR MIND AWAY TOTALLY FROM BAD THOUGHT</strong></li></h3> 
+
+              <h3> <li><strong>FORGET THE PAST, FOCUS ON THE PRESENT AND DON'T FOCUS ON THINGS YOU CANNOT CHANGE.</strong></li></h3> 
+
+              <h3><li><strong>LISTEN TO MUSIC REGULARLY</strong></li></h3> 
+                
+              <h3> <li><strong>KEEP COOL, FORGIVE YOURSELF, RELAX AND CALM DOWN</strong></li></h3> 
+            </ol>
+        {% endif %}
+        <h2><a href="{% url 'home' %}">Back to Home</a></h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Predictor</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Depression Predictor</h1>
+        <form action="depression_result/" method="post">
+            {% csrf_token %} 
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" required>
+
+            <label for="income">Income ($):</label>
+            <input type="number" name="income" id="income" required>
+            
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" required>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+                <option value="1">Transgender Male</option>
+            </select>
+
+            <label for="sexuallity">Sexuality:</label>
+            <select name="sexuallity" id="sexuallity" required>
+                <option value="0">Straight</option>
+                <option value="1">Bisexual</option>
+                <option value="2">Gay/Lesbian</option>
+                <!-- Add more options if needed -->
+            </select>
+            <label for="race">Race:</label>
+            <select name="race" id="race" required>
+                <option value="14">White non-hispanic</option>
+                <option value="0">Asian</option>
+                <option value="4"> Hispanic (of any race)</option>
+                <option value="19">Caucasian</option>
+                <option value="6">Black</option>
+                <option value="16">White and Asian</option>
+                <option value="5">Middle Eastern</option>
+                <option value="5">Half Arab</option>
+                <option value="5">Pakistani</option>
+                <option value="5">helicopterkin</option>
+                <option value="5">Turkish</option>
+                <option value="5">Indian</option>
+                <option value="5">Multi</option>
+                <option value="5">Native American Mix</option>
+                <option value="5">North African</option>
+                <option value="5">Half Asian Half White</option>
+                <option value="5">White and Native American</option>
+                <option value="5">European</option>
+                <option value="5">Mixed Race</option>
+                <!-- Add more options if needed -->
+            </select>
+
+            <label for="bodyweight">Body Weight:</label>
+            <select name="bodyweight" id="bodyweight" required>
+                <option value="0">Underweight</option>
+                <option value="1">Normal</option>
+                <option value="2">Overweight</option>
+                <option value="3">Obese</option>
+                <!-- Add more options if needed -->
+            </select>
+            <label for="virgin">Virgin:</label>
+            <select name="virgin" id="virgin" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            <label for="prostitution_legal">Prostitution Legal:</label>
+            <select name="prostitution_legal" id="prostitution_legal" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="pay_for_sex">Pay for Sex:</label>
+            <select name="pay_for_sex" id="pay_for_sex" required>
+                <option value="0">No</option>
+                <option value="1">Yes and I have</option>
+                <option value="2">Yes, but I haven't</option>
+            </select>
+
+            <label for="social_fear">Social Fear:</label>
+            <select name="social_fear" id="social_fear" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="attempt_suicide">Attempt Suicide:</label>
+            <select name="attempt_suicide" id="attempt_suicide" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="friends">Friends:</label>
+            <input type="number" name="friends" id="friends" required>
+
+            <label for="employment">Employment:</label>
+            <select name="employment" id="employment" required>
+                <option value="1">Employed for Wages</option>
+                <option value="2">Out of work and looking for work</option>
+                <option value="2">Out of work and currently not looking for work</option>
+                <option value="5">Student</option>
+                <option value="2">Unable to work</option>
+                <option value="2">Retired</option>
+                <option value="1">Military</option>
+                <option value="2">Self Employed</option>
+                <option value="4">homemaker</option>
+            </select>
+
+            <label for="job_title">Select a Job Title:</label>
+            <select name="job_title" id='job_title'>
+                <option value="136">2nd Lieutenant</option>
+                <option value="102">Account Manager</option>
+                <option value="57">Accountant</option>
+                <option value="142">Accounts Receivable</option>
+                <option value="176">Admin</option>
+                <option value="142">Admin Assistant</option>
+                <option value="75">Admin assistant</option>
+                <option value="142">Administrative Assistant</option>
+                <option value="142">Administrative Officer</option>
+                <option value="150">Administrator</option>
+                <option value="107">Artist</option>
+                <option value="142">Audit Associate</option>
+                <option value="211">Auditor</option>
+                <option value="134">Aviation Electricians Mate</option>
+                <option value="142">Bio Major</option>
+                <option value="64">Boss</option>
+                <option value="109">Butcher</option>
+                <option value="142">CGMA Student</option>
+                <option value="142">Call Center Agent</option>
+                <option value="28">Call Operator</option>
+                <option value="22">Case Worker</option>
+                <option value="139">Cashier</option>
+                <option value="80">Chef</option>
+                <option value="29">Cinema Student</option>
+                <option value="211">Cleaner</option>
+                <option value="77">Clerk</option>
+                <option value="137">Coder</option>
+                <option value="11">College Student/Research Intern</option>
+                <option value="61">Consultant</option>
+                <option value="19">Consultant IT</option>
+                <option value="211">Coo</option>
+                <option value="142">Cook</option>
+                <option value="135">Coordinator</option>
+                <option value="117">Courier</option>
+                <option value="27">Cst Analyst</option>
+                <option value="207">Data and Development</option>
+                <option value="204">Data Entry</option>
+                <option value="195">Delivery Guy</option>
+                <option value="210">Delivery Manager</option>
+                <option value="95">Designer</option>
+                <option value="87">Disabled</option>
+                <option value="49">Economist</option>
+                <option value="149">Engineer</option>
+                <option value="142">Engineering Co-op Student</option>
+                <option value="142">Entrepreneur</option>
+                <option value="70">Fabricator</option>
+                <option value="59">Farm Hand</option>
+                <option value="163">Finance Student</option>
+                <option value="72">Financial Analyst</option>
+                <option value="3">Freelance Writer</option>
+                <option value="193">Freight Broker</option>
+                <option value="135">Freight Associate</option>
+                <option value="115">Gardener/Student</option>
+                <option value="42">Grad Student</option>
+                <option value="142">Grad Student</option>
+                <option value="48">Grad Student</option>
+                <option value="127">Graphic Designer</option>
+                <option value="3">Grunt</option>
+                <option value="215">Guy</option>
+                <option value="32">Herder</option>
+                <option value="92">High School Senior</option>
+                <option value="43">Home Depot Order Fulfillment</option>
+                <option value="48">I Don't Have a Job</option>
+                <option value="74">I'm a Student</option>
+                <option value="163">IT</option>
+                <option value="24">IT Engineer</option>
+                <option value="47">IT Technician</option>
+                <option value="52">Insurance Agent</option>
+                <option value="162">Intermediate Call Center Representative</option>
+                <option value="142">Intern</option>
+                <option value="86">Interpreter</option>
+                <option value="199">Iternent Peagogue</option>
+                <option value="105">Janitor</option>
+                <option value="134">Job</option>
+                <option value="171">Junior BA</option>
+                <option value="147">Junkie</option>
+                <option value="199">Languages</option>
+                <option value="190">Lawyer</option>
+                <option value="63">Librarian</option>
+                <option value="142">Lifeguard</option>
+                <option value="164">Loser</option>
+                <option value="101">Management</option>
+                <option value="142">Manager</option>
+                <option value="138">Marketing</option>
+                <option value="199">Masters</option>
+                <option value="111">Mechanical Engineer</option>
+                <option value="27">Medical Services</option>
+                <option value="214">Musician</option>
+                <option value="160">N/a</option>
+                <option value="221">NEET</option>
+                <option value="83">NEET Parasite</option>
+                <option value="37">None</option>
+                <option value="205">Not Disclosing This</option>
+                <option value="161">Not Telling</option>
+                <option value="71">Not Working</option>
+                <option value="142">Nothing</option>
+                <option value="208">Nurse</option>
+                <option value="48">Operations Manager (I do what my father tells me to do in our family company)</option>
+                <option value="143">Operations Executive</option>
+                <option value="211">Optometric Tech</option>
+                <option value="10">PA</option>
+                <option value="142">Part Time Computer Tutor</option>
+                <option value="132">Part Time Paperboy</option>
+                <option value="33">Peon</option>
+                <option value="211">Philosopher</option>
+                <option value="142">Popo</option>
+                <option value="148">President</option>
+                <option value="175">Press Operator</option>
+                <option value="48">Principal Software Engineer</option>
+                <option value="36">Product Designer</option>
+                <option value="124">Production Editor</option>
+                <option value="97">Professional NEET</option>
+                <option value="39">Program Manager, Non-profit</option>
+                <option value="9">Programmer</option>
+            </select>
+
+            <label for="edu_level">Education Level:</label>
+            <select name="edu_level" id="edu_level" required>
+                <option value="6">Associate degree</option>
+                <option value="6">Bachelor’s degree</option>
+                <option value="6">Doctorate degree</option>
+                <option value="1">High school graduate, diploma or the equivalent (for example: GED)</option>
+                <option value="8">Master’s degree</option>
+                <option value="6">Professional degree</option>
+                <option value="1">Some high school, no diploma</option>
+                <option value="4">Some college, no degree</option>
+                <option value="6">Trade/technical/vocational training</option>
+            </select>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
